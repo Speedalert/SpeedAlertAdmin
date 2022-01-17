@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="img/splogo.png">
+    <title>Speedalert Admin Dashboard</title>
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="css/sb-admin-2.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/sweetalert2.css">
+    <link rel="stylesheet" href="css/bootstrap-datetimepicker.css">
+
+</head>
+
+<body id="page-top">
+
+    <div id="wrapper">
+
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar" style="background: #EF5319;">
+
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="client.html">
+                <div class="sidebar-brand-icon ">
+                    <img src="img/slogo.jpg" style="width: 40px; height: 40px; border-radius: 900%;">
+                </div>
+                <div class="sidebar-brand-text mx-3" style="font-size:18px; font-family: 'Bungee' ">SpeedAlert</sup></div>
+            </a>
+
+            <hr class="sidebar-divider my-0">
+
+            <hr class="sidebar-divider">
+
+            <div class="sidebar-heading">
+
+            </div>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="client.html">
+                    <i class="fa fa-map"></i>
+                    <span>Client Monitoring</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="violation.html">
+                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        <span>Violation Monitoring</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="acctmgt.html">
+                            <i class="fa fa-file"></i>
+                            <span>Account Management</span></a>
+                        </li>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal" style="font-size:14px; ">
+                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-100" ></i> Logout</a>
+                    </li>
+
+                        <hr class="sidebar-divider d-none d-md-block">
+
+                        <div class="text-center d-none d-md-inline">
+                            <button class="rounded-circle border-0" id="sidebarToggle"></button>
+                        </div>
+
+                    </ul>
+
+                    <div id="content-wrapper" class="d-flex flex-column">
+
+                        <div id="content">
+                            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                            <h6 class="" style="color: black; font-size: 20px;">Violation Monitoring Module</h6>
+                            <ul class="navbar-nav ml-auto">
+
+                                <li class="nav-item dropdown no-arrow d-sm-none">
+                                    <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-search fa-fw"></i>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small"
+                                        placeholder="Search for..." aria-label="Search"
+                                        aria-describedby="basic-addon2" id="inputsearch">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button" id="btSearch">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown no-arrow">
+
+
+                        </div>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+            <section id="main-content" style="margin-left: 80px; padding-bottom: 100px; margin-right: auto;">
+              <section class="wrapper">
+
+                <div class="card shadow mb-4" style="width: 1000px; height: auto; border: 1;">
+ 
+                    <form>
+                        <div class="input-group">
+                            <div class="container-fluid">
+                                <div class="input-group mb-3 mt-3" style="width:60%;">
+                                    <input autocomplete="off" type="text" class="form-control bg-light border-color small" placeholder="Search" style=" border-color: #EF5319; width:80px;" 
+                                            aria-label="Search" aria-describedby="basic-addon2" id="SearchInput">
+                                    <div class="input-group-append">
+                                        <select class="custom-select bg-light" id="CategorySelected" style=" border-color: #EF5319; font-size: 16px; margin-right:2px; margin-left: 5px;">
+                                            <option selected value="1" >By Violation ID</option>
+                                            <option value="2">By Date & Time</option>
+                                            <option value="3">By Driver's Name</option>
+                                            <option value="4">By Plate Number</option>
+                                        </select>
+                                        <button id="SearchBtn" class="btn btn-outline-secondary m-l" type="button" style="background-color:#EF5319; border-color: #EF5319; ">
+                                        <i class="fas fa-search fa-sm"></i> </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="card-body" style="padding-bottom: 70px;">
+                        <div class="table-responsive" style="height: 500px; overflow-y: auto;">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>Violation ID</th>
+                                        <th>Date & Time</th>
+                                        <th>Driver's Name</th>
+                                        <th>Plate Number</th>
+                                        <th>Violation</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="table table-borderedbody" id="tableBody1">
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" id="btnLogout">Logout</a>
+        </div>
+    </div>
+</div>
+</div>
+
+<script type="module" src="js/violation.js"></script>
+<script src="js/sweetalert2.js"></script>
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="js/Moment.js"></script>
+<script src="js/bootstrap-datetimepicker.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="js/sb-admin-2.min.js"></script>
+<script src="vendor/chart.js/Chart.min.js"></script>
+<script src="js/demo/chart-area-demo.js"></script>
+<script src="js/demo/chart-pie-demo.js"></script>
+
+</body>
+
+</html>
+
+
+

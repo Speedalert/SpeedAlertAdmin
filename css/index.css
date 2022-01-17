@@ -1,0 +1,36 @@
+.alertfail {
+  padding: 15px;
+  background-color: #F44336;
+  color: white;
+  margin-bottom: 15px;
+  font-size: 15px;
+}
+
+.alertsuccess {
+  padding: 20px;
+  background-color: #04AA6D;
+  color: white;
+  margin-bottom: 15px;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+} 
+
+#map {
+
+  width: 1000px;
+  height: 600px;
+  border: 1;
+}
