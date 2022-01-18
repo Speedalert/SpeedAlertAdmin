@@ -223,4 +223,88 @@ function loadinfo(uname){
   });
 }
 
+var searchBar = document.getElementById('SearchInput');
+var searchBtn = document.getElementById('SearchBtn');
+var category = document.getElementById('CategorySelected');
+var body = document.getElementById('tableBody1');
+
+function searchAccount(Category){
+
+  var filter = searchBar.value.toUpperCase();
+  var tr = body.getElementsByTagName("tr");
+  var found;
+
+  for(let i = 0; i < tr.length; i++){
+    
+    var td = tr[i].getElementsByClassName(Category);
+
+    for(let j = 0; j < td.length; j++){
+
+      if(td[j].innerHTML.toUpperCase().indexOf(filter) > -1){
+
+        found = true;
+      }
+    }
+
+    if(found){
+
+      tr[i].style.display = "";
+      found = false;
+    }
+
+    else {
+
+      tr[i].style.display="none";
+    }
+  }
+}
+
+searchBtn.onclick = function(){
+
+  if(searchBar.value == ""){
+
+    loadtables();
+  }
+
+  else if(category.value == 1){
+    searchAccount('nameField');
+  }
+
+  else if(category.value == 2){
+    searchAccount('plateField');
+  }
+}
+
+searchBar.addEventListener('input', function(e){
+
+  searchBtn.click();
+
+});
+
+searchBar.addEventListener("keypress", function(e){
+
+  var key = e.which || e.keyCode || e.key || 0;
+
+  if(key === 13){
+
+    searchBtn.click();
+  }
+});
+
+category.addEventListener('change', function(e){
+
+  if(category.value == 1 || 2 ){
+
+    try{
+      
+      searchBar.value = '';
+    }
+
+    catch(err){
+
+      console.log(err);
+    }
+  }
+});
+
 window.onload = loadtables;

@@ -168,7 +168,21 @@ function searchClientExact(Category){
   }
 }
 
-window.onload = loadtables;
+category.addEventListener('change', function(e){
+
+  if(category.value == 1 || 2 || 3){
+
+    try{
+      
+      searchBar.value = '';
+    }
+
+    catch(err){
+
+      console.log(err);
+    }
+  }
+});
 
 searchBtn.onclick = function(){
 
@@ -195,3 +209,5 @@ searchBar.addEventListener('input', function(e){
   searchBtn.click();
 
 });
+
+window.onload = loadtables;
